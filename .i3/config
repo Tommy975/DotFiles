@@ -102,3 +102,4 @@ alias gpp="g++ -Wall -Wextra -Werror -o"
 alias ..="cd .."
 #alias lock="./Documents/scripts/lock.sh"
 #alias ll="ls -larth"
+
