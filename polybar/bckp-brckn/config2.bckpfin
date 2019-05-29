@@ -1,0 +1,430 @@
+;==========================================================
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;==========================================================
+  
+[global/wm]
+  margin-top    = 0
+  margin-bottom = 0
+
+
+[colours]
+  ; bg =    #ee292f37
+
+
+  ######################
+
+  black     = ${xrdb:color0}
+  red       = ${xrdb:color1}
+  green     = ${xrdb:color2}
+  yellow    = ${xrdb:color3}
+  blue      = ${xrdb:color4}
+  magenta   = ${xrdb:color5}
+  cyan      = ${xrdb:color6}
+  white     = ${xrdb:color7}
+  brblack   = ${xrdb:color8}
+  brred     = ${xrdb:color9}
+  brgreen   = ${xrdb:color10}
+  bryellow  = ${xrdb:color11}
+  brblue    = ${xrdb:color12}
+  brmagenta = ${xrdb:color13}
+  brcyan    = ${xrdb:color14}
+  brwhite   = ${xrdb:color15}
+
+  navy      = #001f3f
+  aqua      = #7fdbff
+  teal      = #39cccc
+  olive     = #3d9970
+  lime      = #01ff70
+  orange    = #ff851b
+  maroon    = #85144b
+  fuchsia   = #f012be
+  purple    = #b10dc9
+  gray      = #aaaaaa
+  silver    = #dddddd
+
+
+  foreground = ${xrdb:foreground}
+  background = ${xrdb:background}
+  border-bottom = #333
+  border-top    = #333
+
+  underline     = #00f
+
+[bar/top]
+  monitor = ${env:MONITOR:HDMI-1-2}
+  width = 100%
+  height = 28
+  radius = 0
+  ;bottom = true
+  fixed-center = true 
+
+
+  foreground = ${xrdb:foreground}
+  background = ${xrdb:background}
+
+
+  border-size = 0
+  border-color = ${colors.silver}
+  # border-size = 0
+  # border-bottom-size = 0
+
+  # border-color =${colours.clear}
+  # border-bottom-color = ${colours.clear}
+
+  # border-top-size = 0 
+  # border-top-color = ${colours.clear}
+
+  padding = 3
+  module-margin = 1 
+
+
+  font-1 = Font Awesome 5 Brands:weight=Regular:size=14;3
+  font-2 = icomoon:size=13;5
+  font-3 = URW Gothic:size=11;2
+  font-4 = octicons:size=11:weight=Regular;1
+  font-5 = Font Awesome 5 Free:weight=Regular:pixelsize=14;3
+  font-6 = Font Awesome 5 Free Solid:pixelsize=14;3
+  ;http://fontawesome.io/cheatsheet/
+  ;https://shanfan.github.io/material-icons-cheatsheet/
+
+  modules-left   = prevsong playpause nextsong music
+  modules-center = i3 
+  modules-right  = pavolume redshift battery bluetooth wireless-network clock powermenubarlauncher
+
+  ; For KDE, disable the powermenubarlauncher module
+  ; modules-right  = pavolume redshift battery bluetooth wireless-network clock
+
+  ; override-redirect = true
+  ; wm-restack = i3
+
+
+
+
+[module/i3]
+  type = internal/i3
+  strip-wsnumbers = false
+  enable-click = true
+  enable-scroll = true
+  reverse-scroll = true
+  ; fuzzy-match = true
+
+  ; ws-icon-0 = 1;%{F#8859ff}
+  ws-icon-0 = 1;%{T4}1%{T-}
+  ws-icon-1 = 2;%{T4}2%{T-}
+  ws-icon-2 = 3;%{T4}3%{T-}
+  ws-icon-3 = 4;%{T4}4%{T-}
+  ws-icon-4 = 5;%{T4}5%{T-}
+  ws-icon-5 = 6;%{T4}6%{T-}
+  ws-icon-6 = 7;%{T4}7%{T-}
+  ws-icon-7 = 8;%{T4}8%{T-}
+  ws-icon-8 = 9;%{T4}9%{T-}
+  ws-icon-9 = 10:;%{F#e44332}
+  ws-icon-10 = 11:;%{F#1ED760}
+  ws-icon-11 = 12:;
+
+  format = <label-mode> <label-state> <label-mode>
+  label-mode = %mode%
+  label-mode-padding = 2
+  label-mode-foreground = ${colours.white}
+  label-mode-background = ${colours.maia}
+
+  label-focused = %icon% 
+  label-focused-foreground = ${colours.white}
+  label-focused-background = #3f3f3f
+  label-focused-underline = #fba922
+  label-focused-padding = 4
+
+  label-unfocused = %icon% 
+  label-unfocused-foreground = ${colours.white}
+  label-unfocused-padding = 4
+
+  label-visible = %icon%
+  label-visible-underline = #555555
+  label-visible-padding = 4
+
+  label-urgent = %icon%
+  label-urgent-foreground = #000000
+  label-urgent-background = #bd2c40
+  label-urgent-padding = 4
+
+
+
+[module/clock]
+type = internal/date
+format = " <label> "
+label = %date%
+date = %{F#993257} %{F#e8e8e8}%a %b %d %{F#e8e8e8}%l:%M:%S %p
+label-font = 0
+
+
+
+
+[module/pavolume]
+type = custom/script
+tail = true
+label = " %output% "
+exec = ~/.config/polybar/pavolume.sh --listen
+click-left = amixer sset Master toggle
+click-right = exec pavucontrol &
+scroll-down = amixer sset Master 2%-
+scroll-up = amixer sset Master 2%+
+ 
+
+
+[module/bluetooth]
+type = custom/script
+interval = 1
+exec = ~/.config/polybar/bluetooth.sh
+label = "  %output% "
+click-left = blueberry
+click-right = ~/.config/polybar/bluetooth.sh --toggle
+
+
+
+[module/music]
+type = custom/script
+interval = 1 
+label = %{T4}%output:0:90:...%%{T-}
+tail = true
+exec = ~/.config/polybar/mpris.sh
+click-left = ~/.config/polybar/musicWorkspaceSwitcher.sh
+
+
+
+[module/playpause]
+type = custom/script
+label = %output%
+tail = false
+interval = 1
+exec = ~/.config/polybar/playpause.sh
+click-left = playerctl play-pause
+
+
+
+[module/nextsong]
+type = custom/text
+content = "%{F#1d95cd}"
+click-left = playerctl next
+
+
+
+[module/prevsong]
+type = custom/text
+content = "%{F#1998c9}"
+click-left = playerctl previous
+
+
+
+
+[module/redshift]
+type = custom/script
+tail = true
+label = "%output%   "
+exec = ~/.config/polybar/redshift.sh
+click-left = redshift -c ~/.config/redshift.conf &
+click-right = redshift -x && pkill -9 redshift &
+
+
+
+[module/battery]
+type = internal/battery
+
+battery = BAT0
+adapter = ADP0
+full-at = 100
+
+format-charging = "<animation-charging> <label-charging>"
+format-discharging = " <ramp-capacity> <label-discharging>"
+format-full = " <ramp-capacity> <label-full>"
+
+label-charging-foreground = ${colours.white}
+label-discharging-foreground = ${colours.white}
+label-full-foreground = ${colours.white}
+
+label-charging-font = 4
+label-discharging-font = 4
+label-full-font = 4
+
+ramp-capacity-0 = 
+ramp-capacity-0-foreground = ${colours.red}
+ramp-capacity-1 = 
+ramp-capacity-1-foreground = ${colours.yellow}
+ramp-capacity-2 = 
+ramp-capacity-2-foreground = ${colours.batterypurple}
+ramp-capacity-3 = 
+ramp-capacity-3-foreground = ${colours.batterypurple}
+ramp-capacity-4 = 
+ramp-capacity-4-foreground = ${colours.batterypurple}
+
+animation-charging-0 = %{F#6e4661} 
+animation-charging-1 = %{F#6e4661} 
+animation-charging-2 = %{F#6e4661} 
+animation-charging-3 = %{F#6e4661} 
+animation-charging-4 = %{F#6e4661} 
+animation-charging-framerate = 600
+
+
+
+
+[module/wireless-network]
+type = internal/network
+interface = wlp0s20f3
+interval = 1.0
+ping-interval = 3
+format-connected = <label-connected>
+label-connected = " %{A1:i3-sensible-terminal -e 'sh -c nmtui':}%{F#854168} %{F#e8e8e8}%essid%%{A}  "
+label-disconnected = " %{F#33} "
+label-font = 0
+
+
+
+
+
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
+format = <ramp> <label>
+
+label-foreground = ${colours.white}
+
+ramp-0 = 🌕
+ramp-1 = 🌔
+ramp-2 = 🌓
+ramp-3 = 🌒
+ramp-4 = 🌑
+ramp-foreground = ${colours.maia}
+
+bar-width = 6
+bar-indicator = 
+bar-fill = 
+bar-fill-font = 3
+bar-fill-foreground = ${colours.white}
+bar-empty = 
+bar-empty-font = 3
+bar-empty-foreground = ${colours.grey}
+
+
+
+[module/xwindow]
+type = internal/xwindow
+
+label = %title%
+label-foreground = ${colours.white}
+
+
+[module/powermenubarlauncher]
+type = custom/text
+content = " %{F#b02145} "
+click-left = polybar powermenubar
+
+
+
+
+
+
+[bar/powermenubar]
+monitor = eDP-1
+width = 28%
+height = 32
+radius = 0
+
+background = #DA222222
+foreground = ${colours.white}
+
+border-size = 0
+border-color =${colours.clear}
+
+border-bottom-size = 0
+border-bottom-color = ${colours.clear}
+
+border-top-size = 0
+border-top-color = ${colours.clear}
+
+border-right-size = 0
+; border-right-color = ${colours.clear}
+
+offset-x = 1370
+offset-y = 35
+
+
+padding = 3
+module-margin = 2 
+separator = %{F#33}|
+
+font-0 = System San Francisco Display:size=10;2
+font-1 = Font Awesome:size=12;3
+font-2 = MaterialIcons:size=12;4
+;http://fontawesome.io/cheatsheet/
+;https://shanfan.github.io/material-icons-cheatsheet/
+
+modules-center = lock logout suspend reboot poweroff closepowermenubar
+
+
+override-redirect = true
+wm-restack = true
+
+
+
+
+[module/lock]
+type = custom/text
+content = "%{F#259E83} %{F-}Lock"
+click-left = "pkill -n polybar ; sh ~/.config/i3/Lock.sh"
+
+
+[module/suspend]
+type = custom/text
+content = "%{F#259E83} %{F-}Suspend"
+click-left = "pkill -n polybar ; sh ~/.config/i3/Lock.sh && systemctl suspend"
+
+
+[module/logout]
+type = custom/text
+content = "%{F#259E83} %{F-}Logout"
+click-left = "pkill -n polybar ; i3-msg exit"
+
+
+[module/reboot]
+type = custom/text
+content = "%{F#259E83} %{F-}Reboot"
+click-left = "pkill -n polybar ; systemctl reboot"
+
+
+[module/poweroff]
+type = custom/text
+content = "%{F#259E83} %{F-}Poweroff"
+click-left = "pkill -n polybar ; systemctl poweroff"
+
+
+
+[module/closepowermenubar]
+type = custom/text
+content = "%{F#259E83} %{F-}Cancel"
+click-left = "pkill -n polybar"
+
+
+
+
+[settings]
+throttle-output = 10
+throttle-output-for = 10
+throttle-input-for = 30
+© 2019 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About

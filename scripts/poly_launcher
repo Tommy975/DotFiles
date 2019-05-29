@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# exec polybar top & disown & polybar bottom & polybar top2 & polybar bottom2 & disown
+# $n = 'xrandr > randr.txt | grep  -c " connected"  '
+# let $n - 1
+# if (    ) {
+#     exec polybar top & disown ;
+#     exec polybar bottom & disown ;
+# }
+# else
+     exec polybar top & disown ;
+     exec polybar bottom & disown ;
+     exec polybar top2 & disown ;
+     exec polybar bottom2 & disown ;
+# }
